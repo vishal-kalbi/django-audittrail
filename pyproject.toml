@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-audittrail"
+version = "0.1.0"
+description = "Automatic model-level change tracking for Django. One mixin, one middleware, zero boilerplate."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    {name = "Agami AI", email = "dev@agami.ai"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "Django>=4.2",
+]
+
+[project.optional-dependencies]
+drf = ["djangorestframework>=3.14"]
+dev = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "coverage>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/agami-ai/django-audittrail"
+Documentation = "https://github.com/agami-ai/django-audittrail#readme"
+Changelog = "https://github.com/agami-ai/django-audittrail/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["audittrail*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
